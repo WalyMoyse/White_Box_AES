@@ -1,0 +1,12 @@
+This implementation is an all in one White box AES implementation. 
+It is used to generate all the table and to cipher the table (while in reality, you must have one implementation for each of those step).
+The main goal of the main function is not to return the tables we generated but more to verify if the generation is functionnal.
+The generation of this tables is not random and used a pre-created document that contain randoms bijections.
+A more complet implementation should contain a generator of thos table to get different tables each time.
+Our bijection and matrix were generated using a SageMath scrypt (random is easier to use and more efficient in python)
+The main function is only doing one test with the key 0x000102030405060708090A0B0C0D0E0F and the block 0x00112233445566778899AABBCCDDEEFF used in the nist standard for AES.
+The test will first try the table without any encoding, then with all mixing bijections and then with internal encoding. (The result of those 3 tests should be the same).
+There is no external encoding implemented in this version.
+Simply run make then ./AES to run the test.
+
+This implementation follows the tutorial of James A. Muir : https://eprint.iacr.org/2013/104.pdf
